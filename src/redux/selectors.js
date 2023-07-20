@@ -6,13 +6,18 @@ export const selectFilter = state => state.filter;
 
 export const selectIsLoading = state => state.contacts.isLoading;
 
+export const selectIsDeleting = state => state.contacts.isDeleting;
+
+export const selectCurrentID = state => state.contacts.currentID;
+
 export const selectError = state => state.contacts.error;
 
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectFilter],
   (data, filter) => {
+    const tag = !!Number(filter) ? 'phone' : 'name';
     return data.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
+      contact[tag].toLowerCase().includes(filter.toLowerCase())
     );
   }
 );
