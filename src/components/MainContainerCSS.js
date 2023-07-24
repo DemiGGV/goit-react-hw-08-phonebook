@@ -2,16 +2,14 @@ import styled from '@emotion/styled';
 import { Field, Form } from 'formik';
 
 export const FormContainerCSS = styled(Form)`
-  min-width: 500px;
-  padding: 30px;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5),
-    1px 1px 5px rgba(255, 255, 255, 1);
+  gap: 10px;
 `;
 export const List = styled.ul`
-  min-width: 500px;
+  min-width: 350px;
+  width: 100%;
 `;
 
 export const FieldInputCSS = styled(Field)`
@@ -104,4 +102,9 @@ export const Title = styled.h2`
   font-size: 2em;
   font-weight: 700;
   margin-bottom: 10px;
+`;
+
+export const RightMenu = styled.div`
+  display: flex;
+  gap: 20px;
 `;

@@ -1,35 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import ScrollToTop from 'react-scroll-to-top';
-import { Loader } from './Loader/Loader';
-import { Form } from './Form/Form';
-import { Filter } from './Filter/Filter';
-import { ContactsList } from './ContactsList/ContactsList';
-import { Title, ContainerCSS } from './MainContainerCSS';
+import { toast } from 'react-toastify';
+import { toastOpts } from 'components/Layout';
+import { Title, ContainerCSS } from '../components/MainContainerCSS';
 import {
   selectError,
   selectIsLoading,
   selectVisibleContacts,
-} from 'redux/selectors';
-import { fetchContacts } from 'redux/operations';
+} from 'redux/contacts/selectors';
+import { fetchContacts } from 'redux/contacts/contactsOperations';
+import { Loader } from 'components/Loader/Loader';
+import { Form } from 'components/Form/Form';
+import { Filter } from 'components/Filter/Filter';
+import { ContactsList } from 'components/ContactsList/ContactsList';
+import { Helmet } from 'react-helmet';
 
-const toastOpts = {
-  position: 'top-right',
-  autoClose: 1000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  theme: 'light',
-};
-
-export const App = () => {
-  const dispatch = useDispatch();
+export default function ContactsPage() {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  const dispatch = useDispatch();
   const selectedContacts = useSelector(selectVisibleContacts);
 
   useEffect(() => {
@@ -41,12 +31,15 @@ export const App = () => {
 
   return (
     <ContainerCSS>
+      <Helmet>
+        <title>Phone book</title>
+      </Helmet>
       <ScrollToTop
         smooth
         top={100}
         component={<p style={{ color: 'blue' }}>UP</p>}
       />
-      <Title>Phonebook</Title>
+      <Title>Adding new contact</Title>
       <Form />
       <Title>Contacts</Title>
       <Filter />
@@ -54,7 +47,6 @@ export const App = () => {
       {!!selectedContacts.length && (
         <ContactsList contacts={selectedContacts} />
       )}
-      <ToastContainer />
     </ContainerCSS>
   );
-};
+}

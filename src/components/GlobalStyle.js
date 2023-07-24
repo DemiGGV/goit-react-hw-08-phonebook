@@ -1,6 +1,4 @@
 import { css } from '@emotion/react';
-// import { createGlobalStyle } from 'styled-components';
-/* bring in normalize.css styles */
 import 'modern-normalize';
 
 export const GlobalStyle = css`
@@ -12,6 +10,7 @@ export const GlobalStyle = css`
   h6,
   p {
     margin: 0;
+    text-align: center;
   }
   ul,
   ol {
@@ -34,19 +33,10 @@ export const GlobalStyle = css`
     -moz-osx-font-smoothing: grayscale;
     background-color: #e7ecf2;
     line-height: 1.5;
-    margin-top: 20px;
-  }
-
-  span {
-    text-shadow: #fc0 1px 0 10px;
-    margin-left: auto;
   }
 
   ul {
-    box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5),
-      1px 1px 5px rgba(255, 255, 255, 1);
-    padding: 30px;
-    margin-top: 10px;
+    margin-top: 20px;
   }
 
   label {
@@ -54,8 +44,7 @@ export const GlobalStyle = css`
     flex-direction: column;
   }
 
-  form button {
-    margin-top: 15px;
+  button {
     background-color: #ffffff;
     border: 1px solid #cccccc;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
@@ -63,10 +52,8 @@ export const GlobalStyle = css`
     border-radius: 4px;
     display: block;
     width: 120px;
-    margin: 20px auto;
     font-size: 14px;
     text-align: center;
-    margin-bottom: 10px;
     padding: 4px 6px;
     text-decoration: none;
     cursor: pointer;
@@ -78,33 +65,7 @@ export const GlobalStyle = css`
     }
   }
 
-  li {
-    margin-bottom: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    max-width: 400px;
-    width: 100%;
-  }
-
-  li button {
-    background-color: #ffffff;
-    border: 1px solid #cccccc;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
-    border-radius: 4px;
-    font-size: 14px;
-    padding: 4px 6px;
-    text-decoration: none;
-    cursor: pointer;
-    &:hover {
-      border-color: rgba(82, 168, 236, 0.8);
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,
-        0 0 8px rgba(82, 168, 236, 0.6);
-      outline: 0 none;
-    }
+  form button {
+    margin: 20px auto;
   }
 `;

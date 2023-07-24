@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'redux/operations';
+import { deleteContact } from 'redux/contacts/contactsOperations';
 import { List } from 'components/MainContainerCSS';
-import { selectCurrentID, selectIsDeleting } from 'redux/selectors';
-import { setCurrentID } from 'redux/contactsSlice';
+import { selectCurrentID, selectIsDeleting } from 'redux/contacts/selectors';
+import { setCurrentID } from 'redux/contacts/contactsSlice';
+import { LiButton, LiItem, LiSpan } from './ContactsListStyled';
 
 export const ContactsList = ({ contacts }) => {
   const dispatch = useDispatch();
@@ -18,17 +19,17 @@ export const ContactsList = ({ contacts }) => {
   return (
     <List>
       {contacts.map(contact => (
-        <li key={contact.id}>
-          {contact.name}: <span>{contact.phone}</span>
-          <button
+        <LiItem key={contact.id}>
+          {contact.name}: <LiSpan>{contact.number}</LiSpan>
+          <LiButton
             type="button"
             disabled={isDeleting && currentID === contact.id}
             data-id={contact.id}
             onClick={handleClick}
           >
             Delete
-          </button>
-        </li>
+          </LiButton>
+        </LiItem>
       ))}
     </List>
   );

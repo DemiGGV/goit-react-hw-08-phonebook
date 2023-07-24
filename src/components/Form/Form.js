@@ -8,9 +8,9 @@ import {
   ErrorField,
   LabelDiv,
 } from '../MainContainerCSS';
-import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
-import { setError } from 'redux/contactsSlice';
+import { selectContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/contactsOperations';
+import { setError } from 'redux/contacts/contactsSlice';
 
 export const Form = () => {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ export const Form = () => {
     dispatch(
       addContact({
         name: name.trim(),
-        phone: number.trim(),
+        number: number.trim(),
       })
     );
     resetForm();

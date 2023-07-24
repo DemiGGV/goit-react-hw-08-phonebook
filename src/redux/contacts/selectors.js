@@ -8,14 +8,14 @@ export const selectIsLoading = state => state.contacts.isLoading;
 
 export const selectIsDeleting = state => state.contacts.isDeleting;
 
-export const selectCurrentID = state => state.contacts.currentID;
-
 export const selectError = state => state.contacts.error;
+
+export const selectCurrentID = state => state.contacts.currentID;
 
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectFilter],
   (data, filter) => {
-    const tag = !!Number(filter) ? 'phone' : 'name';
+    const tag = !!Number(filter) ? 'number' : 'name';
     return data.filter(contact =>
       contact[tag].toLowerCase().includes(filter.toLowerCase())
     );

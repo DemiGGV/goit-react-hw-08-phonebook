@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from 'redux/filterSlice';
-import { selectContacts, selectFilter } from 'redux/selectors';
+import { setFilter } from 'redux/contacts/filterSlice';
+import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 import { FormInputCSS } from 'components/MainContainerCSS';
 
 export const Filter = () => {
@@ -15,7 +15,7 @@ export const Filter = () => {
 
   return (
     <label>
-      Filter by: use "chars" OR "numbers"...
+      Filtering contacts by: name/number...
       <FormInputCSS
         type="text"
         name="filter"
