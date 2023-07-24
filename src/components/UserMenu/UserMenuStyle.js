@@ -20,6 +20,7 @@ export const Button = styled.button`
   text-decoration: none;
   cursor: pointer;
   &::after {
+    pointer-events: none;
     position: absolute;
     left: 0;
     top: 20px;
@@ -34,7 +35,7 @@ export const Button = styled.button`
     ::after {
       opacity: 1;
       scale: 1;
-      transform: translate(calc(-50% + 60px), 15px);
+      transform: translate(calc(-50% + 60px), 20px);
     }
     border-color: rgba(82, 168, 236, 0.8);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,
