@@ -10,13 +10,15 @@ import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/goit-react-hw-08-phonebook">
-          <App />
-          <Global styles={GlobalStyle} />
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
+    <div style={{ position: 'relative' }}>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter basename="/goit-react-hw-08-phonebook">
+            <App />
+            <Global styles={GlobalStyle} />
+          </BrowserRouter>
+        </PersistGate>
+      </Provider>
+    </div>
   </React.StrictMode>
 );
