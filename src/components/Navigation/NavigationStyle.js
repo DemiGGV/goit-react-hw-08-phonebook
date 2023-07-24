@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 
 export const NavMenu = styled.nav`
   display: flex;
-  gap: 20px;
 `;
 
 export const MenuItem = styled(NavLink)`
