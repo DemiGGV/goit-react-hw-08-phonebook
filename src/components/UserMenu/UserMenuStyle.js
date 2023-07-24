@@ -22,6 +22,7 @@ export const Button = styled.button`
   &::after {
     position: absolute;
     left: 0;
+    top: 20px;
     transform: translateX(calc(-50% + 60px));
     transition: all 0.2s ease-out;
     content: '${props => props.email}';
@@ -33,7 +34,7 @@ export const Button = styled.button`
     ::after {
       opacity: 1;
       scale: 1;
-      transform: translate(calc(-50% + 60px), 35px);
+      transform: translate(calc(-50% + 60px), 15px);
     }
     border-color: rgba(82, 168, 236, 0.8);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,
