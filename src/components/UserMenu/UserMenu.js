@@ -11,9 +11,13 @@ export const UserMenu = () => {
   return (
     <RightMenu>
       <p>
-        Welcome, <Span>{user.email}</Span>
+        Welcome, <Span>{user.name}</Span>
       </p>
-      <Button type="button" onClick={() => dispatch(logoutUser())}>
+      <Button
+        email={user.email}
+        type="button"
+        onClick={() => dispatch(logoutUser())}
+      >
         Logout
       </Button>
     </RightMenu>
