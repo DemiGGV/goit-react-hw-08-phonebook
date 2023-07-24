@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsOperations';
-import { List } from 'components/MainContainerCSS';
 import { selectCurrentID, selectIsDeleting } from 'redux/contacts/selectors';
 import { setCurrentID } from 'redux/contacts/contactsSlice';
-import { LiButton, LiItem, LiSpan } from './ContactsListStyled';
+import { LiButton, LiItem, LiSpan, List } from './ContactsListStyled';
 
 export const ContactsList = ({ contacts }) => {
   const dispatch = useDispatch();

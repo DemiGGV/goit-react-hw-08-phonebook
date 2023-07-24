@@ -1,5 +1,10 @@
 import styled from '@emotion/styled';
 
+export const List = styled.ul`
+  min-width: 350px;
+  width: 100%;
+`;
+
 export const LiItem = styled.li`
   margin-bottom: 5px;
   margin-left: auto;
@@ -10,6 +15,10 @@ export const LiItem = styled.li`
   gap: 15px;
   max-width: 450px;
   width: 100%;
+  @media screen and (max-width: 650px) {
+    max-width: 350px;
+    padding: 0 20px;
+  }
 `;
 
 export const LiSpan = styled.span`
@@ -27,6 +36,7 @@ export const LiButton = styled.button`
   padding: 4px 6px;
   text-decoration: none;
   cursor: pointer;
+  min-width: 120px;
   &:hover {
     border-color: rgba(82, 168, 236, 0.8);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,

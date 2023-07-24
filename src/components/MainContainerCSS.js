@@ -7,10 +7,6 @@ export const FormContainerCSS = styled(Form)`
   flex-direction: column;
   gap: 10px;
 `;
-export const List = styled.ul`
-  min-width: 350px;
-  width: 100%;
-`;
 
 export const FieldInputCSS = styled(Field)`
   display: block;
