@@ -20,7 +20,7 @@ export const Button = styled(NavLink)`
   transition: box-shadow 0.25s linear 0s;
   border-radius: 7px;
   display: block;
-  max-width: 350px;
+  max-width: calc(240px + 10vw);
   font-size: calc(1em + 1vw);
   text-align: center;
   padding: 10px 15px;
