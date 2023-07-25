@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 
 export const Title = styled.h2`
   color: #00000085;
-  margin-top: 50px;
   font-size: calc(3em + 10vw);
   text-align: center;
 `;
