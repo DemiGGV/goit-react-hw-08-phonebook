@@ -1,61 +1,66 @@
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { ErrorMessage, Formik } from 'formik';
-import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   FormContainerCSS,
   FieldInputCSS,
-  ErrorField,
-  LabelDiv,
-  FormEditBtnCSS,
   TextFieldsCSS,
 } from './FormEditStyle';
 import { editContact } from 'redux/contacts/contactsOperations';
+import { selectContacts } from 'redux/contacts/selectors';
+import { setError } from 'redux/contacts/contactsSlice';
 
 export const FormEdit = ({ data }) => {
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
   const { id, name, number } = data;
 
-  const handleSubmit = value => {
-    const { name, number } = value;
-    dispatch(
-      editContact({
+  const handleSubmit = evt => {
+    let user;
+    evt.preventDefault();
+    console.log(evt.target.name, evt.target.value);
+    if (evt.target.name === 'name') {
+      if (
+        contacts.find(
+          contact =>
+            contact.name.toLowerCase() === evt.target.value.trim().toLowerCase()
+        )
+      ) {
+        dispatch(setError(`${evt.target.value.trim()} already in contacts!`));
+        return;
+      }
+      user = {
         taskId: id,
-        name: name.trim(),
-        number: number.trim(),
-      })
-    );
+        name: evt.target.value.trim(),
+        number: number,
+      };
+    } else {
+      user = {
+        taskId: id,
+        name: name,
+        number: evt.target.value.trim(),
+      };
+    }
+    dispatch(editContact(user));
   };
 
-  const Schema = Yup.object().shape({
-    name: Yup.string().min(3, 'Too Short!').max(30, 'Too Long!'),
-    number: Yup.string().min(5, 'Too Short!').max(15, 'Too Long!'),
-  });
-
   return (
-    <Formik
-      initialValues={{
-        name: name,
-        number: number,
-      }}
-      validationSchema={Schema}
-      onSubmit={handleSubmit}
-    >
-      <FormContainerCSS>
-        <TextFieldsCSS>
-          <LabelDiv>
-            <FieldInputCSS type="text" name="name" />
-            <ErrorMessage component={ErrorField} name="name" />
-          </LabelDiv>
-          <LabelDiv>
-            <FieldInputCSS type="tel" name="number" />
-            <ErrorMessage component={ErrorField} name="number" />
-          </LabelDiv>
-        </TextFieldsCSS>
-        <FormEditBtnCSS type="submit">📝</FormEditBtnCSS>
-      </FormContainerCSS>
-    </Formik>
+    <FormContainerCSS>
+      <TextFieldsCSS>
+        <FieldInputCSS
+          type="text"
+          name="name"
+          value={name}
+          onChange={handleSubmit}
+        />
+        <FieldInputCSS
+          type="tel"
+          name="number"
+          value={number}
+          onChange={handleSubmit}
+        />
+      </TextFieldsCSS>
+    </FormContainerCSS>
   );
 };
 

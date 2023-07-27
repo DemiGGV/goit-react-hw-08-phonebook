@@ -29,11 +29,11 @@ export const LiButton = styled.button`
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
   transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 1rem;
   padding: 8px;
   text-decoration: none;
   cursor: pointer;
-  max-width: 45px;
+  max-width: 85px;
   &:hover {
     border-color: rgba(82, 168, 236, 0.8);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,

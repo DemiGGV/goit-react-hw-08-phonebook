@@ -28,7 +28,7 @@ export const Contact = ({ data }) => {
         data-id={id}
         onClick={handleDeleteClick}
       >
-        🚫
+        Remove
       </LiButton>
     </LiItem>
   );

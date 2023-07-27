@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
-import { Field, Form } from 'formik';
 
-export const FormContainerCSS = styled(Form)`
+export const FormContainerCSS = styled.form`
   min-width: 150px;
   display: flex;
   align-items: center;
   gap: 5px;
 `;
+
 export const TextFieldsCSS = styled.div`
   display: flex;
   gap: 5px;
@@ -14,7 +14,8 @@ export const TextFieldsCSS = styled.div`
     flex-direction: column;
   }
 `;
-export const FieldInputCSS = styled(Field)`
+
+export const FieldInputCSS = styled.input`
   display: block;
   width: 100%;
   height: calc(2.25rem + 2px);
@@ -44,20 +45,6 @@ export const FieldInputCSS = styled(Field)`
     background-color: #f5f5f5;
     opacity: 1;
   }
-`;
-
-export const LabelDiv = styled.div`
-  position: relative;
-`;
-
-export const ErrorField = styled.div`
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  color: #ff000090;
-  text-shadow: #fc0 1px 0 10px;
-  padding: 0 10px;
-  border-radius: 15px;
 `;
 
 export const FormEditBtnCSS = styled.button`
