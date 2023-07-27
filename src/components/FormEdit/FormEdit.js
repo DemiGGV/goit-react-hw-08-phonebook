@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { ErrorMessage, Formik } from 'formik';
 import * as Yup from 'yup';
@@ -56,4 +57,8 @@ export const FormEdit = ({ data }) => {
       </FormContainerCSS>
     </Formik>
   );
+};
+
+FormEdit.propTypes = {
+  contact: PropTypes.array,
 };
