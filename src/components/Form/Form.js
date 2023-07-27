@@ -35,7 +35,7 @@ export const Form = () => {
     resetForm();
   };
 
-  const SignupSchema = Yup.object().shape({
+  const Schema = Yup.object().shape({
     name: Yup.string()
       .min(3, 'Too Short!')
       .max(30, 'Too Long!')
@@ -52,7 +52,7 @@ export const Form = () => {
         name: '',
         number: '',
       }}
-      validationSchema={SignupSchema}
+      validationSchema={Schema}
       onSubmit={handleSubmit}
     >
       <FormContainerCSS>
