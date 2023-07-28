@@ -12,6 +12,10 @@ import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/contactsOperations';
 import { setError } from 'redux/contacts/contactsSlice';
 
+export const NumberBoundary = {
+  Min: 5,
+  Max: 15,
+};
 export const Form = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
@@ -41,8 +45,8 @@ export const Form = () => {
       .max(30, 'Too Long!')
       .required('Required'),
     number: Yup.string()
-      .min(5, 'Too Short!')
-      .max(15, 'Too Long!')
+      .min(NumberBoundary.Min, 'Too Short!')
+      .max(NumberBoundary.Max, 'Too Long!')
       .required('Required'),
   });
 

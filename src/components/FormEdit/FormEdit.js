@@ -9,6 +9,7 @@ import {
 import { editContact } from 'redux/contacts/contactsOperations';
 import { selectContacts } from 'redux/contacts/selectors';
 import { useState } from 'react';
+import { NumberBoundary } from 'components/Form/Form';
 
 export const FormEdit = ({ data }) => {
   const dispatch = useDispatch();
@@ -68,7 +69,16 @@ export const FormEdit = ({ data }) => {
           value={numberSt}
           onBlur={handleSubmit}
           onChange={evt => {
-            setNumberSt(evt.target.value);
+            if (
+              evt.target.value.length < NumberBoundary.Min ||
+              evt.target.value.length > NumberBoundary.Max
+            )
+              return;
+            if (!isNaN(evt.nativeEvent.data) || evt.nativeEvent.data === '+') {
+              setNumberSt(evt.target.value);
+              return;
+            }
+            return;
           }}
         />
       </TextFieldsCSS>
