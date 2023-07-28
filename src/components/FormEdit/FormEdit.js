@@ -9,35 +9,43 @@ import {
 import { editContact } from 'redux/contacts/contactsOperations';
 import { selectContacts } from 'redux/contacts/selectors';
 import { setError } from 'redux/contacts/contactsSlice';
+import { useState } from 'react';
 
 export const FormEdit = ({ data }) => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  const { id, name, number } = data;
+  const [nameSt, setNameSt] = useState(data.name);
+  const [numberSt, setNumberSt] = useState(data.number);
+  const { id } = data;
+
+  const findIndexContact = () => {
+    return contacts.findIndex(contact => contact.id === id);
+  };
 
   const handleSubmit = evt => {
     let user;
     evt.preventDefault();
-    console.log(evt.target.name, evt.target.value);
     if (evt.target.name === 'name') {
       if (
         contacts.find(
           contact =>
             contact.name.toLowerCase() === evt.target.value.trim().toLowerCase()
-        )
+        ) ||
+        evt.target.value.trim() === ''
       ) {
-        dispatch(setError(`${evt.target.value.trim()} already in contacts!`));
         return;
       }
       user = {
         taskId: id,
         name: evt.target.value.trim(),
-        number: number,
+        number: numberSt,
       };
     } else {
+      if (contacts[findIndexContact()].number === evt.target.value.trim())
+        return;
       user = {
         taskId: id,
-        name: name,
+        name: nameSt,
         number: evt.target.value.trim(),
       };
     }
@@ -50,14 +58,20 @@ export const FormEdit = ({ data }) => {
         <FieldInputCSS
           type="text"
           name="name"
-          value={name}
-          onChange={handleSubmit}
+          value={nameSt}
+          onBlur={handleSubmit}
+          onChange={evt => {
+            setNameSt(evt.target.value);
+          }}
         />
         <FieldInputCSS
           type="tel"
           name="number"
-          value={number}
-          onChange={handleSubmit}
+          value={numberSt}
+          onBlur={handleSubmit}
+          onChange={evt => {
+            setNumberSt(evt.target.value);
+          }}
         />
       </TextFieldsCSS>
     </FormContainerCSS>
