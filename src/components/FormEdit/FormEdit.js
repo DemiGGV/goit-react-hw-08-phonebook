@@ -30,8 +30,7 @@ export const FormEdit = ({ data }) => {
         contacts.find(
           contact =>
             contact.name.toLowerCase() === evt.target.value.trim().toLowerCase()
-        ) ||
-        evt.target.value.trim() === ''
+        )
       ) {
         return;
       }
