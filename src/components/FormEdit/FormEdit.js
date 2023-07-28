@@ -8,7 +8,6 @@ import {
 } from './FormEditStyle';
 import { editContact } from 'redux/contacts/contactsOperations';
 import { selectContacts } from 'redux/contacts/selectors';
-import { setError } from 'redux/contacts/contactsSlice';
 import { useState } from 'react';
 
 export const FormEdit = ({ data }) => {
