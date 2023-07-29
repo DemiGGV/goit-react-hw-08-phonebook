@@ -30,6 +30,11 @@ export const Button = styled.button`
     opacity: 0;
     text-shadow: #fc0 1px 0 10px;
     scale: 0.75;
+    @media screen and (max-width: 650px) {
+      opacity: 1;
+      scale: 1;
+      transform: translate(calc(-50% + 60px), 30px);
+    }
   }
   &:hover {
     ::after {
