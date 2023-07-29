@@ -10,6 +10,8 @@ export const FormContainerCSS = styled.form`
 export const TextFieldsCSS = styled.div`
   display: flex;
   gap: 5px;
+  border: 1px solid #bdbdbd50;
+  border-radius: 0.25rem;
   @media screen and (max-width: 650px) {
     flex-direction: column;
   }
@@ -27,7 +29,8 @@ export const FieldInputCSS = styled.input`
   color: #212529;
   background-color: #e7ecf2;
   background-clip: padding-box;
-  border: 1px solid #bdbdbd50;
+  border: 0px;
+  outline: 0;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   &::placeholder {
