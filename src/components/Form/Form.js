@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ErrorMessage, Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -8,7 +8,6 @@ import {
   ErrorField,
   LabelDiv,
 } from '../MainContainerCSS';
-import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/contactsOperations';
 
 export const NumberBoundary = {
