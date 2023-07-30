@@ -10,7 +10,6 @@ import {
 } from '../MainContainerCSS';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/contactsOperations';
-import { setError } from 'redux/contacts/contactsSlice';
 
 export const NumberBoundary = {
   Min: 5,
@@ -18,18 +17,9 @@ export const NumberBoundary = {
 };
 export const Form = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
 
   const handleSubmit = (value, { resetForm }) => {
     const { name, number } = value;
-    if (
-      contacts.find(
-        contact => contact.name.toLowerCase() === name.trim().toLowerCase()
-      )
-    ) {
-      dispatch(setError(`${name.trim()} already in contacts!`));
-      return;
-    }
     dispatch(
       addContact({
         name: name.trim(),
