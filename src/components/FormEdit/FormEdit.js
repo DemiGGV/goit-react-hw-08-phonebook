@@ -60,6 +60,15 @@ export const FormEdit = ({ data }) => {
           value={nameSt}
           onBlur={handleSubmit}
           onChange={evt => {
+            if (
+              contacts.find(
+                contact =>
+                  contact.name.toLowerCase() ===
+                  evt.target.value.trim().toLowerCase()
+              )
+            ) {
+              return;
+            }
             setNameSt(evt.target.value);
           }}
         />
