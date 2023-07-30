@@ -11,7 +11,7 @@ export const UserMenu = () => {
   return (
     <RightMenu>
       <p>
-        Welcome, <Span>{user.name}</Span>
+        Welcome, <Span email={user.email}>{user.name}</Span>
       </p>
       <Button
         email={user.email}
